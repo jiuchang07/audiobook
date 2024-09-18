@@ -6,7 +6,7 @@ const divideStringIntoSnippets = require('./divideStringIntoSnippets.js');
 const converter = require('./tts_google.js');
 const joinMp3 = require('./joinMp3.js');
 const path = require('path');
-const MAXCHAR = 40
+const MAXCHAR = 4000
 
 async function main() {
 
