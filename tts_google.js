@@ -3,15 +3,6 @@ const path = require('path');
 const fs = require("fs");
 const textToSpeech = require('@google-cloud/text-to-speech');
 
-let data = {
-    GPT_API_KEY: process.env.GPT_API_KEY,  // No longer needed for Google Cloud, but can keep if you use it elsewhere.
-    DISCORD_BOT_TOKEN: process.env.DISCORD_BOT_TOKEN,  // Not relevant for this task, but can stay.
-    TEXT: process.env.TEXT,
-    TEXT2: process.env.TEXT2,
-    TEXT3: process.env.TEXT3,
-    TEXT4: process.env.TEXT4
-};
-
 // Initialize the Google Cloud Text-to-Speech client
 const client = new textToSpeech.TextToSpeechClient();
 
