@@ -16,7 +16,7 @@ let data = {
 const client = new textToSpeech.TextToSpeechClient();
 
 async function converter(out_path, text) {
-  console.log(out_path, text);
+  // console.log(out_path, text);
   if (text.length <= 0) {
     return;
   }
@@ -28,7 +28,7 @@ async function converter(out_path, text) {
     input: { text: text },
     voice: {
       languageCode: 'en-US',  // Set your desired language code here
-      name: 'en-US-Wavenet-D',  // Replace this with the desired voice: /Polyglot-1, Studio-O
+      name: 'en-US-Studio-Q',  // Replace this with the desired voice: /Polyglot-1, Studio-O, Studio-Q, Wavenet-I
     },
     audioConfig: {
       audioEncoding: 'MP3',

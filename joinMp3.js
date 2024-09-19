@@ -19,15 +19,16 @@ async function joinMp3(directoryPath, outputFilePath) {
             console.log('No MP3 files found in the directory.');
             return;
         }
-
+        mp3Files.sort((a, b) => {
+            return parseInt(a) - parseInt(b);
+        });
         // Create a temporary file listing all MP3 files to be joined
         const fileList = 'filelist.txt';
         const fileContent = mp3Files.map(file => `file '${path.join(directoryPath, file)}'`).join('\n');
         fs.writeFileSync(fileList, fileContent);
 
         // Construct the ffmpeg command
-        const ffmpegCommand = `ffmpeg -f concat -safe 0 -i ${fileList} -c copy ${outputFilePath}`;
-
+        const ffmpegCommand = `ffmpeg -f concat -safe 0 -i ${fileList} -c copy "${outputFilePath}"`;
         // Execute the ffmpeg command
         exec(ffmpegCommand, (error, stdout, stderr) => {
             if (error) {
